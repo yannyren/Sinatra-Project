@@ -23,7 +23,6 @@ get '/students/:id/edit' do
   @student = Student.find(params["id"])
   @companies = Company.all()
   erb(:"/students/edit")
-  # redirect to '/students' 
 end 
 
 post '/students/:id' do

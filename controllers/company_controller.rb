@@ -16,5 +16,22 @@ post '/companies' do
   redirect ('/companies')
 end 
 
+get '/companies/:id/edit' do
+  @company = Company.find(params["id"])
+  erb(:'/companies/edit')
+end 
+
+post '/companies/:id' do
+  company = Company.new(params)
+  company.update
+  redirect to '/companies'
+end 
+
+delete '/companies/:id' do
+  company = Company.find(params["id"])
+  company.delete
+  redirect to '/companies'
+end 
+
 
 
