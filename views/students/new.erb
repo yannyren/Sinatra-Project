@@ -1,0 +1,34 @@
+<h2>New Student Form</h2>
+
+<form method="post" action="/students">
+  <div>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name"/>
+    </div>
+
+    <div>
+      <label for="gender">Gender</label>
+      <input type="text" name="gender" id="gender" >
+    </div>
+
+    <div>
+      <label for="cohort">Cohort</label>
+      <input type="text" name="cohort" id="cohort">
+    </div>
+
+    <div>
+      <label for="company_select">Company</label>
+      <select name="company_id" id="company_select">
+        <% @companies.each do |company| %>
+        <option value=<%= company.id %>><%= company.name %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <div>
+      <input type="submit" value="Submit"/>
+    </div>
+
+  </div>
+</form>

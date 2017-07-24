@@ -24,6 +24,11 @@ class Student
     return SqlRunner.run(sql)
   end 
 
+  def company()
+    sql = "SELECT * FROM companies WHERE id = #{@company_id};"
+    return SqlRunner.run(sql)[0]["name"]
+  end 
+
   def delete()
     sql = "DELETE FROM students WHERE id = #{@id};"
     return SqlRunner.run(sql)

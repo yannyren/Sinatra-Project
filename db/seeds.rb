@@ -28,6 +28,13 @@ student5.save
 student6.save
 
 
+# student1.delete
+# Student.all
+
+# Student.find(30)
+
+
+
 
 
 binding.pry

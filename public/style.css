@@ -1,0 +1,39 @@
+html {
+
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+header {
+  width: 800px;
+  background-color: yellow;
+  display: flex;
+}
+
+#menu {
+  width: 220px;
+  display: flex;
+  margin: 0 auto;
+}
+
+img {
+  display: flex;
+  width: 500px;
+}
+
+#skills, #hobbies {
+
+  background-color: red;
+}
+
+.blue-border {
+  font-weight: bold;
+  border-bottom: 4px solid blue;
+}
+/*for anything in the class of blue-border, I wnat the paragraph nomal
+/*.blue-border p {
+  font-weight: normal;
+}
+
+.italicised {
+  font-style: italic;
+}
