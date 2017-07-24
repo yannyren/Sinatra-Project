@@ -13,5 +13,6 @@ CREATE TABLE students (
   name VARCHAR(255),
   gender VARCHAR(255),
   cohort VARCHAR(255),
+  graduation_date DATE,
   company_id INT REFERENCES companies(id)
 );

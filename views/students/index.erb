@@ -8,6 +8,7 @@
     <th>Name</th>
     <th>Gender</th>
     <th>Cohort</th>
+    <th>Graduation Date</th>
     <th>Company</th>
     <th></th>
   </tr>
@@ -17,6 +18,7 @@
     <td><a href="/students/<%= student.id %>/edit"><%= student.name %></a></td>
     <td><%= student.gender %></td>
     <td><%= student.cohort %></td>
+    <td><%= student.graduation_date %></td>
     <td><%= student.company %></td>
     <td>
       <form method="post" action="/students/<%= student.id %>">

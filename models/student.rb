@@ -2,25 +2,26 @@ require_relative('../db/sql_runner')
 
 class Student
 
-  attr_reader :id, :name, :gender, :cohort, :company_id
+  attr_reader :id, :name, :gender, :cohort, :company_id, :graduation_date
 
   def initialize(options)
     @name = options["name"]
     @gender = options["gender"]
     @cohort = options["cohort"]
+    @graduation_date = options["graduation_date"]
     @company_id = options["company_id"].to_i
     @id = options["id"].to_i if options["id"]
   end 
 
   def save()
-    sql = "INSERT INTO students (name, gender, cohort, company_id) VALUES ('#{@name}', '#{@gender}', '#{@cohort}', #{@company_id}) RETURNING id;"
+    sql = "INSERT INTO students (name, gender, cohort, graduation_date, company_id) VALUES ('#{@name}', '#{@gender}', '#{@cohort}', '#{@graduation_date}', #{@company_id}) RETURNING id;"
     result = SqlRunner.run(sql) 
     @id = result[0]["id"].to_i
   end 
 
   def update()
     sql = "Update students 
-    SET (name = '#{@name}', gender = '#{@gender}', cohort = '#{@cohort}', company_id = '#{@company_id}') WHERE id = #{@id};"
+    SET (name = '#{@name}', gender = '#{@gender}', cohort = '#{@cohort}', graduation_date ='#{@graduation_date}', company_id = #{@company_id}) WHERE id = #{@id};"
     return SqlRunner.run(sql)
   end 
 
