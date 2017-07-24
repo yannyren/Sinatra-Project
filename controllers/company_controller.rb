@@ -15,3 +15,6 @@ post '/companies' do
   Company.new(params).save
   redirect ('/companies')
 end 
+
+
+

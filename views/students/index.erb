@@ -4,17 +4,27 @@
 <br/>
 <table>
   <tr>
+    <th>Student ID</th>
     <th>Name</th>
     <th>Gender</th>
     <th>Cohort</th>
     <th>Company</th>
+    <th></th>
+    <th></th>
   </tr>
   <% for student in @students %>
   <tr>
-    <td><%= student.name %></td>
+    <td><%= student.id %></td>
+    <td><a href="/students/<%= student.id %>/edit"><%= student.name %></a></td>
     <td><%= student.gender %></td>
     <td><%= student.cohort %></td>
     <td><%= student.company %></td>
+    <td>
+      <form method="post" action="/students/<%= student.id %>">
+        <input type="hidden" name="_method" value="delete" />
+        <button>Delete</button> 
+      </form>
+    </td>
   </tr>
   <% end %>
 </table>

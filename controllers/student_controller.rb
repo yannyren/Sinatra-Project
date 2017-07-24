@@ -19,3 +19,23 @@ post '/students' do
   redirect to '/students'
 end 
 
+get '/students/:id/edit' do
+  @student = Student.find(params["id"])
+  @companies = Company.all()
+  erb(:"/students/edit")
+  # redirect to '/students' 
+end 
+
+post '/students/:id' do
+  student = Student.new(params)
+  student.update
+  redirect to '/students'
+end 
+  
+delete '/students/:id' do
+  student = Student.find(params["id"])
+  student.delete
+  redirect to '/students'
+end
+
+
