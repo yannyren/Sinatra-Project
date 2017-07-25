@@ -1,21 +1,36 @@
 <h2>Company Detail</h2>
 
-<form method="post" action="/companies/<%= @company.id %>">
-<div>
-  <div>
-    <label for="Name">Name</label>
-    <input type="text" name="name" id="Name" value=<%= @company.name %>>
-  </div>
+<section class="company-details">
 
   <div>
-    <label for="Location">Location</label>
-    <input type="text" name="location" value=<%= @company.location %>>
+    <% if @company.logo %>
+      <img src="<%= settings.image_path + '/' + @company.logo %>" alt="<%= @company.name %>">
+    <% end %>
   </div>
 
-  <div>
-    <input type="submit" value="submit"/>
-  </div>
-  
-</div>
-  
-</form>
+
+  <form method="post" action="/companies/<%= @company.id %>" enctype="multipart/form-data">
+    <div>
+      <div>
+        <label for="Name">Name</label>
+        <input type="text" name="name" id="Name" value=<%= @company.name %>>
+      </div>
+
+      <div>
+        <label for="Location">Location</label>
+        <input type="text" name="location" value=<%= @company.location %>>
+      </div>
+
+      <div>
+        <label for="Logo">Logo</label>
+        <input type="file" id="logo" name="logo" value=<%= @company.logo %>>
+      </div>
+
+      <div>
+        <input type="submit" value="submit"/>
+      </div>
+      
+    </div>
+  </form>
+
+</section>

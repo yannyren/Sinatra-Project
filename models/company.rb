@@ -2,22 +2,27 @@ require_relative('../db/sql_runner')
 
 class Company
 
-  attr_reader :id, :name, :location
+  attr_reader :id, :name, :location, :logo
 
   def initialize(options)
     @name = options["name"]
     @location = options["location"]
+    @logo = options["logo"]
     @id = options["id"].to_i if options["id"]
   end 
 
   def save()
-    sql = "INSERT INTO companies (name, location) VALUES ('#{@name}','#{@location}') RETURNING id;"
+    sql = "INSERT INTO companies (name, location, logo) VALUES ('#{@name}','#{@location}', '#{@logo}') RETURNING id;"
     result = SqlRunner.run(sql) 
     @id = result[0]["id"].to_i
   end 
 
   def update()
-    sql = "Update companies SET (name = '#{@name}', location = '#{@location}') WHERE id = #{@id};"
+    sql = "UPDATE companies 
+          SET name = '#{@name}', 
+          location = '#{@location}', 
+          logo = '#{@logo}' 
+          WHERE id = #{@id};"
     return SqlRunner.run(sql)
   end 
 

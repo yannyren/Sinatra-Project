@@ -22,6 +22,20 @@ get '/companies/:id/edit' do
 end 
 
 post '/companies/:id' do
+
+  if !params[:logo]
+    params[:logo] = ""
+  else
+    filename = params[:logo][:filename]
+    file = params[:logo][:tempfile]
+
+    File.open("./public/images/#{filename}", "wb") do |f|
+      f.write(file.read)
+    end
+
+    params["logo"] = filename
+  end
+  
   company = Company.new(params)
   company.update
   redirect to '/companies'

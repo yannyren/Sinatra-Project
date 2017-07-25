@@ -5,7 +5,7 @@ require('pry')
 Student.delete()
 Company.delete()
 
-company1 = Company.new({"name" => "Google", "location" => "Dublin"})
+company1 = Company.new({"name" => "Google", "location" => "Dublin", "logo" => "Google_logo.svg.png"})
 company2 = Company.new({"name" => "SkyScanner", "location" => "Edinburgh"})
 company3 = Company.new({"name" => "Alibaba", "location" => "HangZhou"})
 company4 = Company.new({"name" => "Uber", "location" => "San Francisco"})
