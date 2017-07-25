@@ -1,14 +1,11 @@
-<h2>Company Detail</h2>
-
 <section class="company-details">
-
   <div>
     <% if @company.logo %>
       <img src="<%= settings.image_path + '/' + @company.logo %>" alt="<%= @company.name %>">
     <% end %>
   </div>
 
-
+  <h2>Company Detail</h2>
   <form method="post" action="/companies/<%= @company.id %>" enctype="multipart/form-data">
     <div>
       <div>
@@ -32,5 +29,18 @@
       
     </div>
   </form>
+
+</section>
+
+<section>
+<h2>CodeClan Students Working in This Company</h2>
+  <table>
+    <th>Student ID</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Cohort</th>
+    <th>Graduation Date</th>
+    
+  </table>
 
 </section>
