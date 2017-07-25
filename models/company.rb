@@ -43,6 +43,12 @@ class Company
     return Company.new(result[0])
   end 
 
+  def students
+    sql = "SELECT students.* FROM companies INNER JOIN jobs ON jobs.company_id = companies.id INNER JOIN students ON jobs.student_id = students.id WHERE companies.id = #{@id};"
+    students = SqlRunner.run(sql)
+    return students.map {|student| Student.new(student)}
+  end 
+
   def self.delete(id)
     sql = "DELETE FROM companies WHERE id = #{id};"
     return SqlRunner.run(sql)

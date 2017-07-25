@@ -15,11 +15,11 @@
   <% for student in @students %>
   <tr>
     <td><%= student.id %></td>
-    <td><a href="/students/<%= student.id %>/edit"><%= student.name %></a></td>
+    <td><a href="/students/<%= student.id %>"><%= student.name %></a></td>
     <td><%= student.gender %></td>
     <td><%= student.cohort %></td>
     <td><%= student.graduation_date %></td>
-    <td><a href="/companies/<%= student.company_id %>/edit"><%= student.company %></a></td>
+    <td><a href="/companies/<%= student.company.id %>"><%= student.company.name %></a></td>
     <td>
       <form method="post" action="/students/<%= student.id %>">
         <input type="hidden" name="_method" value="delete" />

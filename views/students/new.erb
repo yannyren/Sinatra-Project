@@ -23,12 +23,8 @@
     </div>
 
     <div>
-      <label for="company_select">Company</label>
-      <select name="company_id" id="company_select">
-        <% @companies.each do |company| %>
-        <option value=<%= company.id %>><%= company.name %></option>
-        <% end %>
-      </select>
+      <label for="Picture">Picture</label>
+      <input type="file" id="Picture" name="picture">
     </div>
 
     <div>

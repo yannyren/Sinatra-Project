@@ -1,0 +1,29 @@
+<h2>Company Profile</h2>
+
+
+<img src="<%= settings.image_path + '/' + @company.logo %>" alt="<%= @company.name %>">
+
+<h3>Company Name: <%= @company.name %></h3>
+<h3>Company Location:<%= @company.location %></h3>
+
+<h3>Current Employed CodeClan Student:</h3>
+<table>
+  <tr>
+    <th>Student ID</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Cohort</th>
+    <th>Graduation Date</th>
+  </tr>
+
+<% for student in @company.students %>
+  <tr>
+    <td><%= student.id %></td>
+    <td><%= student.name %></td>
+    <td><%= student.gender %></td>
+    <td><%= student.cohort %></td>
+    <td><%= student.graduation_date %></td>
+  </tr>
+<% end %>
+
+</table>

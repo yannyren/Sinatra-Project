@@ -1,0 +1,27 @@
+<h2>Employment Record</h2>
+<a href="/jobs/new">Add New Employment Record</a>
+
+<br/>
+<table>
+  <tr>
+    <th>Job ID</th>
+    <th>Student</th>
+    <th>Company</th>
+    <th>Type</th>
+    <th></th>
+  </tr>
+  <% for job in @jobs %>
+  <tr>
+    <td><%= job.id %></td>
+    <td><a href="/students/<%= job.student.id %>"><%= job.student.name %></a></td>
+    <td><a href="/companies/<%= job.company.id %>"><%= job.company.name %></a></td>
+    <td><%= job.type.type %></td>
+    <td>
+      <form method="post" action="/jobs/<%= job.id %>">
+        <input type="hidden" name="_method" value="delete" />
+        <button>Delete</button> 
+      </form>
+    </td>
+  </tr>
+  <% end %>
+</table>

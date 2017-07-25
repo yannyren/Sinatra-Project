@@ -16,6 +16,11 @@ post '/companies' do
   redirect ('/companies')
 end 
 
+get '/companies/:id' do
+  @company = Company.find(params["id"])
+  erb(:"/companies/show")
+end
+
 get '/companies/:id/edit' do
   @company = Company.find(params["id"])
   erb(:'/companies/edit')

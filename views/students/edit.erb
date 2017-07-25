@@ -1,6 +1,12 @@
 <h2>Student Detail</h2>
 
-<form method="post" action="/students/<%= @student.id %>">
+<div>
+  <% if @student.picture %>
+    <img src="<%= settings.image_path + '/' + @student.picture %>" alt="<%= @student.name %>">
+  <% end %>
+</div>
+
+<form method="post" action="/students/<%= @student.id %>" enctype="multipart/form-data">
 <div>
   <div>
     <label for="Name">Name</label>
@@ -19,17 +25,12 @@
 
   <div>
     <label for="Graduation_date">Graduation Date</label>
-    <input type="date" name="graduation_date" id="Graduation_date">
+    <input type="date" name="graduation_date" id="Graduation_date" value="<%= @student.graduation_date %>">
   </div>
 
   <div>
-    <label for="Company ID">Company Name</label>
-    <select name="company_id" id="Company ID">
-    <% @companies.each do |company|%>
-    <option value=<%= @student.company %> <%= "selected" if company.id == @student.company_id %>>
-      <%= company.name %>
-    </option>
-    <% end %>
+    <label for="Picture">Picture</label>
+    <input type="file" id="picture" name="picture" value="<%= @student.picture %>">
   </div>
 
   <div>
