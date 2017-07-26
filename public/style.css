@@ -1,39 +1,43 @@
 html {
 
-  font-family: Helvetica, Arial, sans-serif;
 }
 
-header {
-  width: 800px;
-  background-color: yellow;
-  display: flex;
+body {
+  font-family: "Times New Roman", Georgia, Serif;
+  color: black;
 }
 
-#menu {
-  width: 220px;
-  display: flex;
-  margin: 0 auto;
+
+.menu {
+  float: left;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
 }
 
 img {
-  display: flex;
-  width: 500px;
-}
-
-#skills, #hobbies {
-
-  background-color: red;
-}
-
-.blue-border {
-  font-weight: bold;
-  border-bottom: 4px solid blue;
-}
-/*for anything in the class of blue-border, I wnat the paragraph nomal
-/*.blue-border p {
-  font-weight: normal;
-}
-
-.italicised {
-  font-style: italic;
+  width: 300px;
 }
