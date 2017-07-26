@@ -4,11 +4,18 @@
 
 <h3>Student Name: <%= @student.name %></h3>
 <h3>Current Company: 
-<%if @student.company != nil %>
-<%= @student.company.name %>
-<% end %></h3>
+  <%if @student.company != nil %>
+  <%= @student.company.name %>
+  <% end %> 
+</h3>
+<h3>Position: 
+  <% if @student.type != nil %>
+  <%= @student.type.type %>
+  <% end %>
+</h3>
 
-<p>CV</p>
+<h3>CV</h3>
+<p>...</p>
 
 <form method="get" action="/students/<%= @student.id %>/edit">
     <input type="submit" value="Edit"/>

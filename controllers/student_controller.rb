@@ -1,5 +1,6 @@
 require('sinatra')
 require('sinatra/contrib/all')
+require_relative('../models/file_uploader')
 require_relative('../models/student')
 require_relative('../models/company')
 require_relative('../models/type')
@@ -30,19 +31,14 @@ get '/students/:id/edit' do
 end 
 
 post '/students/:id' do
-  if !params[:picture]
+  
+  if !params[:picture]  
     params[:picture] = ""
   else
-    filename = params[:picture][:filename]
-    file = params[:picture][:tempfile]
-
-    File.open("./public/images/#{filename}", "wb") do |f|
-      f.write(file.read)
-    end
-
-    params[:picture] = filename
+    FileUploader.run(params[:picture])
+    params[:picture] = params[:picture][:filename]
   end
-
+  
   student = Student.new(params)
   student.update
   redirect to '/students'

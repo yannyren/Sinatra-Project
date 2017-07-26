@@ -10,10 +10,10 @@ CREATE TABLE types (
 );
 
 CREATE TABLE companies (
-id SERIAL8 PRIMARY KEY,
-name VARCHAR(255),
-location VARCHAR(255),
-logo VARCHAR(255)
+  id SERIAL8 PRIMARY KEY,
+  name VARCHAR(255),
+  location VARCHAR(255),
+  logo VARCHAR(255)
 );
 
 CREATE TABLE students (

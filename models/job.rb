@@ -5,9 +5,9 @@ class Job
   attr_reader :id, :company_id, :student_id, :type_id
 
   def initialize(options)
-    @company_id = options["company_id"]
-    @student_id = options["student_id"]
-    @type_id = options["type_id"]
+    @company_id = options["company_id"].to_i
+    @student_id = options["student_id"].to_i
+    @type_id = options["type_id"].to_i
     @id = options["id"].to_i if options["id"]
   end 
 

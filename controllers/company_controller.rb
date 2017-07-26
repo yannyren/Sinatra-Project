@@ -1,5 +1,6 @@
 require('sinatra')
 require('sinatra/contrib/all')
+require_relative('../models/file_uploader')
 require_relative('../models/company')
 
 get '/companies' do
@@ -26,21 +27,15 @@ get '/companies/:id/edit' do
   erb(:'/companies/edit')
 end 
 
-post '/companies/:id' do
+post '/companies/:id' do  
 
   if !params[:logo]
     params[:logo] = ""
   else
-    filename = params[:logo][:filename]
-    file = params[:logo][:tempfile]
-
-    File.open("./public/images/#{filename}", "wb") do |f|
-      f.write(file.read)
-    end
-
-    params["logo"] = filename
+    FileUploader.run(params[:logo])
+    params[:logo] = params[:logo][:filename]
   end
-  
+
   company = Company.new(params)
   company.update
   redirect to '/companies'

@@ -1,5 +1,7 @@
 <h2>Job Types</h2>
 
+<a href="/types/new">Add New Job Type</a>
+
 <table>
   <tr>
     <th>ID</th>
@@ -10,7 +12,7 @@
   <% for type in @types %>
   <tr>
     <td><%= type.id %></td>
-    <td><%= type.type %></td>
+    <td><a href="/types/<%= type.id %>"><%= type.type %></a></td>
     <td>
       <form method="post" action="/types/<%= type.id %>">
         <input type="hidden" name="_method" value="delete" />

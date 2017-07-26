@@ -42,6 +42,16 @@ class Student
     result ? Company.new(result) : Company.new({})
   end 
 
+  def type()
+    sql = "SELECT types.* 
+          FROM types 
+          INNER JOIN jobs
+          ON jobs.type_id = types.id
+          WHERE jobs.student_id = #{@id};"
+    result = SqlRunner.run(sql).first
+    result ? Type.new(result) : Type.new({})
+  end 
+
   def delete()
     sql = "DELETE FROM students WHERE id = #{@id};"
     return SqlRunner.run(sql)

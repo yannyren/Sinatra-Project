@@ -27,7 +27,7 @@ end
 
 get '/jobs/:id/edit' do
   @job = Job.find(params["id"])
-  @students = Student.all()
+  @student = @job.student()
   @companies = Company.all() 
   @types = Type.all()
   erb(:"/jobs/edit")
