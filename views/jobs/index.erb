@@ -4,6 +4,7 @@
 <br/>
 <table>
   <tr>
+    <th>Edit</th>
     <th>Job ID</th>
     <th>Student</th>
     <th>Company</th>
@@ -12,6 +13,7 @@
   </tr>
   <% for job in @jobs %>
   <tr>
+    <td><a href="/jobs/<%= job.id %>/edit">Edit</a></td>
     <td><%= job.id %></td>
     <td><a href="/students/<%= job.student.id %>"><%= job.student.name %></a></td>
     <td><a href="/companies/<%= job.company.id %>"><%= job.company.name %></a></td>
