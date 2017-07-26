@@ -1,9 +1,7 @@
 require('sinatra')
 require('sinatra/contrib/all')
-require_relative('../models/student')
-require_relative('../models/company')
 require_relative('../models/type')
-require_relative('../models/job')
+
 
 
 
@@ -21,15 +19,9 @@ post '/types' do
   redirect to '/types'
 end 
 
-get '/types/:id/edit' do
+get '/types/:id' do
   @type = Type.find(params["id"])
-  erb(:"/types/edit")
-end 
-
-post '/types/:id' do
-  type = Type.new(params)
-  type.update
-  redirect to '/types'
+  erb(:"/types/show")
 end 
   
 delete '/types/:id' do

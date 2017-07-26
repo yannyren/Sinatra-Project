@@ -14,6 +14,9 @@ end
 
 get '/jobs/new' do 
   @jobs = Job.all()
+  @students = Student.all()
+  @companies = Company.all() 
+  @types = Type.all()
   erb(:"/jobs/new")
 end 
 
@@ -24,6 +27,9 @@ end
 
 get '/jobs/:id/edit' do
   @job = Job.find(params["id"])
+  @students = Student.all()
+  @companies = Company.all() 
+  @types = Type.all()
   erb(:"/jobs/edit")
 end 
 
@@ -33,8 +39,8 @@ post '/jobs/:id' do
   redirect to '/jobs'
 end 
   
-delete '/jobs/:id' do
-  job = Job.find(params["id"])
+post '/jobs/:id/delete' do
+  job = Job.find(params[:id])
   job.delete
   redirect to '/jobs'
 end

@@ -13,7 +13,7 @@
   <% for company in @companies %>
   <tr>
     <td><%= company.id %></td>
-    <td><a href="/companies/<%= company.id %>/edit"><%= company.name %></a></td>
+    <td><a href="/companies/<%= company.id %>"><%= company.name %></a></td>
     <td><%= company.location %></td>
     <td>
       <form method="post" action="/companies/<%= company.id %>">

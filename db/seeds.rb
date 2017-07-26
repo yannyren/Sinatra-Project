@@ -7,10 +7,10 @@ require('pry')
 Student.delete()
 Company.delete()
 
-company1 = Company.new({"name" => "Google", "location" => "Dublin", "logo" => "Google_logo.svg.png"})
-company2 = Company.new({"name" => "SkyScanner", "location" => "Edinburgh"})
-company3 = Company.new({"name" => "Alibaba", "location" => "HangZhou"})
-company4 = Company.new({"name" => "Uber", "location" => "San Francisco"})
+company1 = Company.new({"name" => "Google", "location" => "Dublin", "logo" => "logo_google.png"})
+company2 = Company.new({"name" => "SkyScanner", "location" => "Edinburgh", "logo" => "logo_skyscanner.png"})
+company3 = Company.new({"name" => "Alibaba", "location" => "HangZhou", "logo" => "logo_alibaba.png"})
+company4 = Company.new({"name" => "Uber", "location" => "San Francisco", "logo" => "logo_uber.png"})
 company1.save
 company2.save
 company3.save

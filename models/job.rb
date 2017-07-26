@@ -64,7 +64,7 @@ class Job
   def self.find(id)
     sql = "SELECT * FROM jobs WHERE id = #{id};"
     result = SqlRunner.run(sql)
-    return Company.new(result[0])
+    return Job.new(result[0])
   end 
 
   def self.delete(id)

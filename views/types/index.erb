@@ -1,0 +1,27 @@
+<h2>Job Types</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Job Type</th>
+    <th>Job Description</th>
+    <th></th>
+  </tr>
+  <% for type in @types %>
+  <tr>
+    <td><%= type.id %></td>
+    <td><%= type.type %></td>
+    <td>
+      <form method="post" action="/types/<%= type.id %>">
+        <input type="hidden" name="_method" value="delete" />
+        <button>Delete</button> 
+      </form>
+    </td>
+  </tr>
+  <% end %>
+
+
+</table>
+
+
+

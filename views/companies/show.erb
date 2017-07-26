@@ -1,10 +1,12 @@
 <h2>Company Profile</h2>
 
-
 <img src="<%= settings.image_path + '/' + @company.logo %>" alt="<%= @company.name %>">
 
 <h3>Company Name: <%= @company.name %></h3>
 <h3>Company Location:<%= @company.location %></h3>
+
+<form method="get" action="/companies/<%= @company.id %>/edit">
+    <input type="submit" value="Edit"/>
 
 <h3>Current Employed CodeClan Student:</h3>
 <table>
@@ -15,6 +17,7 @@
     <th>Cohort</th>
     <th>Graduation Date</th>
   </tr>
+
 
 <% for student in @company.students %>
   <tr>
@@ -27,3 +30,4 @@
 <% end %>
 
 </table>
+

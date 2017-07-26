@@ -1,0 +1,42 @@
+<h2>Change Employment Record Form</h2>
+
+<form method="post" action="/jobs">
+  <div>
+
+    <div>
+      <label for="student_name">Student Name</label>
+      <select name="student_id" id="student_name">
+      <% for student in @students %>
+      <option  value="<%= student.id%>"><%= student.name %></option>
+      <% end %>
+      </select>
+    </div>
+
+    <div>
+      <label for="company_name">Company Name</label>
+      <select name="company_id" id="company_name">
+      <% for company in @companies %>
+      <option  value="<%= company.id%>"><%= company.name %></option>
+      <% end %>
+      </select>
+    </div>
+
+    <div>
+      <label for="type_type">Job Type</label>
+      <select name="type_id" id="type_type">
+      <% for type in @types %>
+      <option  value="<%= type.id%>"><%= type.type %></option>
+      <% end %>
+      </select>
+    </div>
+
+    <div>
+      <input type="submit" value="Submit"/>
+    </div>
+
+  </div>
+</form>
+
+
+
+

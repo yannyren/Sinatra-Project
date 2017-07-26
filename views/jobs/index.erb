@@ -15,11 +15,10 @@
     <td><%= job.id %></td>
     <td><a href="/students/<%= job.student.id %>"><%= job.student.name %></a></td>
     <td><a href="/companies/<%= job.company.id %>"><%= job.company.name %></a></td>
-    <td><%= job.type.type %></td>
+    <td><a href="/types/<%= job.type.id %>"><%= job.type.type %></a></td>
     <td>
-      <form method="post" action="/jobs/<%= job.id %>">
-        <input type="hidden" name="_method" value="delete" />
-        <button>Delete</button> 
+      <form method="post" action="/jobs/<%= job.id %>/delete">
+        <input type="submit" value="delete"></input>
       </form>
     </td>
   </tr>

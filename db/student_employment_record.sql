@@ -27,7 +27,7 @@ CREATE TABLE students (
 
 CREATE TABLE jobs (
   id SERIAL8 PRIMARY KEY,
-  company_id INT REFERENCES companies(id),
-  student_id INT REFERENCES students(id),
-  type_id INT  REFERENCES types(id)
+  company_id INT REFERENCES companies(id) ON DELETE CASCADE,
+  student_id INT REFERENCES students(id) ON DELETE CASCADE,
+  type_id INT  REFERENCES types(id) ON DELETE CASCADE
 );

@@ -19,7 +19,9 @@
     <td><%= student.gender %></td>
     <td><%= student.cohort %></td>
     <td><%= student.graduation_date %></td>
+    <% if student.company != nil %>
     <td><a href="/companies/<%= student.company.id %>"><%= student.company.name %></a></td>
+    <% end %>
     <td>
       <form method="post" action="/students/<%= student.id %>">
         <input type="hidden" name="_method" value="delete" />

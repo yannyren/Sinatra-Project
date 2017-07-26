@@ -15,7 +15,7 @@ class Student
   end 
 
   def save()
-    sql = "INSERT INTO students (name, gender, cohort, graduation_date) VALUES ('#{@name}', '#{@gender}', '#{@cohort}', '#{@graduation_date}') RETURNING id;"
+    sql = "INSERT INTO students (name, gender, cohort, graduation_date, picture) VALUES ('#{@name}', '#{@gender}', '#{@cohort}', '#{@graduation_date}', '#{@picture}') RETURNING id;"
     result = SqlRunner.run(sql) 
     @id = result[0]["id"].to_i
   end 
