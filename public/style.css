@@ -7,6 +7,9 @@ body {
   color: black;
 }
 
+#home {
+  float: center;
+}
 
 .menu {
   float: left;
@@ -40,4 +43,6 @@ li a:hover {
 
 img {
   width: 300px;
+  max-height: 250px;
+
 }
